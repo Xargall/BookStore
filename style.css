@@ -1,0 +1,53 @@
+.room {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+.card {
+  margin: 20px;
+  border-radius: 16px !important;
+  width: 20rem;
+}
+
+.head {
+  background-image: url(./assets/icons/Subtract.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 50px;
+  transform: rotatex(180deg);
+}
+
+.foot {
+  background-image: url(./assets/icons/Subtract.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-top: auto;
+  width: 100%;
+  height: 50px;
+}
+
+.fav {
+  width: 25px;
+}
+
+.card-title {
+  text-align: center;
+  border-bottom: 2px solid var(--bs-info-border-subtle);
+  padding: 8px 0 16px;
+}
+
+.pricing {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 16px;
+  align-items: center;
+}
+
+p {
+  margin-bottom: 0 !important;
+}

@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--primary-color) !important;
+}
+
+:root {
+  --primary-color: rgba(6, 23, 30, 1);
+  --header-color: rgba(9, 33, 42, 1);
+  --arrow-dormant: rgba(253, 91, 79, 0.1);
+  --arrow-active: rgba(253, 91, 79, 0.4);
+  --button-pressed: rgba(18, 70, 88, 1);
+  --button-released: rgba(13, 50, 64, 1);
+  --hover-color: rgba(107, 193, 225, 1);
+}
