@@ -20,14 +20,26 @@
 }
 
 .head {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
   background-image: url(./assets/icons/Subtract.png);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  z-index: 0;
   width: 100%;
-  height: 50px;
-  transform: rotatex(180deg);
+  height: 100px;
+  overflow: hidden;
+  
 }
+
+.head img {
+  width: 350px;
+  height: 250px;
+  transform: translateY(-55px);
+}
+
 
 .foot {
   background-image: url(./assets/icons/Subtract.png);
