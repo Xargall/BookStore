@@ -8,8 +8,10 @@
 .card {
   margin: 20px;
   border-radius: 16px !important;
-  width: 20rem;
+  width: 350px !important;
+  height: 700px !important;
 }
+
 
 .head {
   background-image: url(./assets/icons/Subtract.png);
@@ -33,6 +35,7 @@
 
 .fav {
   width: 25px;
+  height: 25px;
 }
 
 .card-title {
@@ -48,6 +51,60 @@
   align-items: center;
 }
 
+.pricing > p {
+  font-size: 1.75rem;
+  color: var(--bs-red);
+  font-family: "ADLaM Display";
+}
+
 p {
   margin-bottom: 0 !important;
 }
+
+.send-button img {
+  width: 20px;
+}
+
+.likes {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.like-button {
+  border: none;
+  background-color: none;
+}
+
+.card-body {
+  border-top: 2px solid var(--bs-info-border-subtle);
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+
+.book-info {
+  border-bottom: 2px solid var(--bs-info-border-subtle);
+}
+
+.comments {
+  display: flex;
+flex-direction: column;
+  overflow: auto;
+  gap: 12px;
+}
+
+.author-comment {
+  display: flex;
+  justify-content: space-between;
+  font-family: "Share Tech";
+  font-size: 1rem;
+  gap: 20px;
+
+}
+
+.comment-input {
+  align-self: center;
+  margin-top: auto;
+}
+

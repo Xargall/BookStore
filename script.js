@@ -15,6 +15,7 @@ function renderBooks() {
 
 function publishedComments(i) {
   let commentRef = document.getElementById(`comment${i}`);
+  commentRef.innerHTML = "";
   for (
     let commentIndex = 0;
     commentIndex < books[i].comments.length;
@@ -47,4 +48,16 @@ function changeLike(i) {
     books[i].likes++;
     document.getElementById(`like-count${i}`).innerHTML = books[i].likes;
   }
+}
+
+function sendComment(i) {
+  let commentRef = document.getElementById(`input-comment${i}`);
+  let inputComment = commentRef.value;
+  let inputName = "Mathias";
+  let commentIndex = books[i].comments.length;
+
+  books[i].comments[commentIndex] = { name: inputName, comment: inputComment };
+
+  publishedComments(i);
+  commentRef.value = "";
 }
