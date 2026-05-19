@@ -1,5 +1,7 @@
 function init() {
   renderBooks();
+  
+  
 }
 
 function renderBooks() {
@@ -10,6 +12,7 @@ function renderBooks() {
 
     isLiked(i);
     publishedComments(i);
+    
   }
 }
 
@@ -59,5 +62,22 @@ function sendComment(i) {
   books[i].comments[commentIndex] = { name: inputName, comment: inputComment };
 
   publishedComments(i);
+  saveToLocalStorage(i);
   commentRef.value = "";
+}
+
+function saveToLocalStorage (i){
+  localStorage.setItem(`likes${i}`, JSON.stringify(books[i].likes));
+  localStorage.setItem(`liked${i}`, JSON.stringify(books[i].liked));
+  localStorage.setItem(`comments${i}`, JSON.stringify(books[i].comments));
+}
+
+function getFromLocalStorage(){
+  let newLikes = JSON.parse(localStorage.getItem("likes"));
+  let newLiked = JSON.parse(localStorage.getItem("liked"));
+  let newComments = JSON.parse(localStorage.getItem("comments"));
+
+  books[i].likes = newLikes;
+  books[i].liked = newLiked;
+  books[i].comments = newComments;
 }
