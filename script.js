@@ -8,6 +8,7 @@ function renderBooks() {
 
   for (let i = 0; i < books.length; i++) {
     showRoom.innerHTML += getBookTemplate(i);
+  
 
     isLiked(i);
     publishedComments(i);
