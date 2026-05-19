@@ -19,9 +19,9 @@ function publishedComments(i) {
   let commentRef = document.getElementById(`comment${i}`);
   commentRef.innerHTML = "";
   for (
-    let commentIndex = 0;
-    commentIndex < books[i].comments.length;
-    commentIndex++
+    let commentIndex = books[i].comments.length - 1;
+    commentIndex >=0 ;
+    commentIndex--
   ) {
     commentRef.innerHTML += renderComments(commentIndex, i);
   }
