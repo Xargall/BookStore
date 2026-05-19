@@ -18,5 +18,5 @@ body {
   --arrow-active: rgba(253, 91, 79, 0.4);
   --button-pressed: rgba(18, 70, 88, 1);
   --button-released: rgba(13, 50, 64, 1);
-  --hover-color: rgba(107, 193, 225, 1);
+  --hover-color: rgb(107, 193, 225);
 }

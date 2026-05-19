@@ -10,8 +10,14 @@
   border-radius: 16px !important;
   width: 350px !important;
   height: 700px !important;
+  background-color: var(--header-color) !important;
+  /* https://smoothshadows.com/#djEsMSw0LDAuMTQsMTMsMCwwLCMxMjQ3NTgsI2YzZjRmNiwjZmZmZmZmLDE%3D */
+  box-shadow:
+    0px 0px 1px var(--hover-color),
+    0px 0px 3px var(--hover-color),
+    0px 0px 7px var(--hover-color),
+    0px 0px 13px var(--hover-color);
 }
-
 
 .head {
   background-image: url(./assets/icons/Subtract.png);
@@ -40,8 +46,10 @@
 
 .card-title {
   text-align: center;
-  border-bottom: 2px solid var(--bs-info-border-subtle);
+  border-bottom: 2px solid var(--hover-color);
   padding: 8px 0 16px;
+  color: white !important;
+  font-family: "ADLaM Display";
 }
 
 .pricing {
@@ -61,50 +69,126 @@ p {
   margin-bottom: 0 !important;
 }
 
-.send-button img {
-  width: 20px;
-}
-
 .likes {
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
+.likes p {
+  color: white;
+}
+
 .like-button {
   border: none;
-  background-color: none;
+  background-color: var(--header-color);
+}
+
+.like-button:hover {
+  scale: 1.1;
 }
 
 .card-body {
-  border-top: 2px solid var(--bs-info-border-subtle);
+  border-top: 2px solid var(--hover-color);
   display: flex;
   flex-direction: column;
   overflow: auto;
 }
 
 .book-info {
-  border-bottom: 2px solid var(--bs-info-border-subtle);
+  border-bottom: 2px solid var(--hover-color);
+  padding: 15px;
+}
+
+.book-info table {
+  font-family: "ADLaM Display";
+  font-size: 14px;
+  color: white;
 }
 
 .comments {
   display: flex;
-flex-direction: column;
+  flex-direction: column;
   overflow: auto;
   gap: 12px;
+  padding: 12px;
 }
 
 .author-comment {
   display: flex;
   justify-content: space-between;
   font-family: "Share Tech";
-  font-size: 1rem;
+  font-size: 0.8rem;
+  color: white;
   gap: 20px;
-
 }
 
 .comment-input {
+  display: flex;
+  justify-content: space-between;
   align-self: center;
   margin-top: auto;
+  padding: 15px;
+  gap: 8px;
+  width: 100%;
 }
 
+.send-button img {
+  width: 25px;
+}
+
+.send-button {
+  border: none;
+  border-radius: 50%;
+  padding: 8px;
+  background-color: var(--button-pressed);
+}
+
+.send-button:hover {
+  scale: 1.1;
+}
+
+input {
+  border: none;
+  border-bottom: 2px solid var(--hover-color);
+  background-color: var(--button-pressed);
+  font-family: "Share Tech";
+  color: var(--hover-color);
+  height: 24px;
+  align-self: center;
+  width: 300px;
+}
+
+input::placeholder{
+  font-family: "Share Tech";
+  font-size: 14px;
+}
+
+
+.comments {
+  --sb-track-color: #232E33;
+  --sb-thumb-color: #6bc1e1;
+  --sb-size: 6px;
+}
+
+.comments::-webkit-scrollbar {
+  width: var(--sb-size)
+}
+
+.comments::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  border-radius: 3px;
+}
+
+.comments::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 3px;
+  
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  .comments {
+    scrollbar-color: var(--sb-thumb-color)
+                     var(--sb-track-color);
+  }
+}

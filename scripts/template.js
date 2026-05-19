@@ -14,13 +14,24 @@ function getBookTemplate(i) {
           </div>
        </div>
        <div class="book-info">
-         <p>Author :${books[i].author}</p>
-         <p>Erscheinungsjahr : ${books[i].publishedYear}</p>
-         <p>Genre : ${books[i].genre}</p>
+        <table >
+          <tr>
+            <td>Author</td>
+            <td>: ${books[i].author}</td>
+          </tr>
+          <tr>
+            <td>Erscheinungsjahr</td>
+            <td>: ${books[i].publishedYear}</td>
+          </tr>
+          <tr>
+            <td>Genre</td>
+            <td>: ${books[i].genre}</td>
+          </tr>
+        </table>
        </div>
        
        <div id="comment${i}" class="comments" ><h4>Kommentare</h4></div>
-       <span class="comment-input"><input type="text" id="input-comment${i}"><button onclick="sendComment(${i})" class="send-button"><img src="./assets/icons/sendcomment.png" alt=""></button></span>
+       <span class="comment-input"><input type="text" id="input-comment${i}" placeholder="Schreibe deinen Kommentar..."><button onclick="sendComment(${i})" class="send-button"><img src="./assets/icons/sendcomment.png" alt=""></button></span>
        
 
     </div>
@@ -29,10 +40,10 @@ function getBookTemplate(i) {
 
 function renderComments(commentIndex, i) {
   return /*html*/ `
-    <div class="author-comment">
-    <p>${books[i].comments[commentIndex].name}</p>
-    <p>${books[i].comments[commentIndex].comment}</p>
-    </div>
+    <section class="author-comment">
+    <p style="width: 50%;">[${books[i].comments[commentIndex].name}]</p>
+    <p style="width: 90%;">${books[i].comments[commentIndex].comment}</p>
+</section>
    
     `;
 }
