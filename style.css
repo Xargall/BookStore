@@ -118,21 +118,10 @@ p {
   color: white;
 }
 
-.comments {
-  display: flex;
-  flex-direction: column;
-  overflow: auto;
-  gap: 12px;
-  padding: 12px;
-}
-
 .author-comment {
-  display: flex;
-  justify-content: space-between;
   font-family: "Share Tech";
   font-size: 0.8rem;
   color: white;
-  gap: 20px;
 }
 
 .comment-input {
@@ -168,7 +157,7 @@ input {
   color: var(--hover-color);
   height: 24px;
   align-self: center;
-  width: 300px;
+  
 }
 
 input::placeholder{
@@ -176,8 +165,29 @@ input::placeholder{
   font-size: 14px;
 }
 
+.comments h4 {
+  color: white;
+  font-family: "Share Tech";
+  
+}
+
+.comments table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.table-data {
+    padding: 8px 4px;
+    text-align: start;
+    vertical-align:top;
+  }
 
 .comments {
+    display: flex;
+  flex-direction: column;
+  overflow: auto;
+  gap: 12px;
+  padding: 12px ;
   --sb-track-color: #232E33;
   --sb-thumb-color: #6bc1e1;
   --sb-size: 6px;
@@ -203,4 +213,54 @@ input::placeholder{
     scrollbar-color: var(--sb-thumb-color)
                      var(--sb-track-color);
   }
+}
+
+.card-img-top {
+  width: 330px;
+  height: 250px;
+}
+
+@media screen and (max-width:420px) {
+
+  .pricing > p {
+    font-size: 1.25rem;
+  }
+
+  .likes p {
+    font-size: 0.9rem;
+  }
+  
+  .book-info table {
+    font-size: 11px;
+  }
+
+  .comment-input {
+    justify-content: center;
+    gap: 0;
+  }
+
+  .input-field {
+    scale: 0.9;
+  }
+
+  .send-button img {
+    width: 20px;
+  }
+
+  .comments {
+    padding: 12px 0;
+  }
+
+ .table-data {
+    padding: 8px 2px;
+    text-align: start;
+    vertical-align:top;
+  }
+}
+
+@media screen and (min-width:1440px) {
+  .room {
+    padding:25px max(130px, calc(50% - 720px));
+  }
+  
 }

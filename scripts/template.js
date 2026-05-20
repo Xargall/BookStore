@@ -10,7 +10,7 @@ function getBookTemplate(i) {
           <p>${books[i].price.toFixed(2)} €</p>
           <div id="like${i}" class="likes">
             <p id="like-count${i}">${books[i].likes}</p>            
-            <button onclick="changeLike(${i})" class="like-button"><img src="/assets/icons/unliked.png" alt="" class="fav" id="img${i}" ></button>
+            <button onclick="changeLike(${i})" class="like-button" aria-label="Favourite Button"><img src="/assets/icons/unliked.png" alt="" class="fav" id="img${i}" ></button>
           </div>
        </div>
        <div class="book-info">
@@ -30,8 +30,12 @@ function getBookTemplate(i) {
         </table>
        </div>
        
-       <div id="comment${i}" class="comments" ><h4>Kommentare</h4></div>
-       <span class="comment-input"><input type="text" id="input-comment${i}" placeholder="Schreibe deinen Kommentar..."><button onclick="sendComment(${i})" class="send-button"><img src="./assets/icons/sendcomment.png" alt=""></button></span>
+       <div class="comments" >
+        <h4>Kommentare</h4>
+        <table id="comment${i}" ></table>
+      
+       </div>
+       <span class="comment-input"><input class="input-field" type="text" id="input-comment${i}" placeholder="Schreibe deinen Kommentar..."><button onclick="sendComment(${i})" class="send-button" aria-label="Send Comment Button"><img src="./assets/icons/sendcomment.png" alt=""></button></span>
        
 
     </div>
@@ -40,10 +44,10 @@ function getBookTemplate(i) {
 
 function renderComments(commentIndex, i) {
   return /*html*/ `
-    <section class="author-comment">
-    <p style="width: 50%;">[${books[i].comments[commentIndex].name}]</p>
-    <p style="width: 90%;">${books[i].comments[commentIndex].comment}</p>
-</section>
+    <tr class="author-comment">
+    <td class="table-data">[${books[i].comments[commentIndex].name}]</td>
+    <td class="table-data">${books[i].comments[commentIndex].comment}</td>
+</tr>
    
     `;
 }
