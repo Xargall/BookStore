@@ -7,7 +7,7 @@ function getBookTemplate(i) {
      <img src="./assets/img/books.png" class="card-img-top" alt="...">
      <div class="card-body">
        <div class="pricing";>
-          <p>${books[i].price.toFixed(2)} €</p>
+          <p id="formatted-price${i}"></p>
           <div id="like${i}" class="likes">
             <p id="like-count${i}">${books[i].likes}</p>            
             <button onclick="changeLike(${i})" class="like-button" aria-label="Favourite Button"><img src="/assets/icons/unliked.png" alt="" class="fav" id="img${i}" ></button>

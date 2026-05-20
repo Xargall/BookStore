@@ -4,7 +4,7 @@
   font-family: 'ADLaM Display';
   font-style: normal;
   font-weight: 400;
-  src: url('/assets/fonts/adlam-display-v1-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('../assets/fonts/adlam-display-v1-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 /* share-tech-regular - latin */
@@ -13,5 +13,5 @@
   font-family: 'Share Tech';
   font-style: normal;
   font-weight: 400;
-  src: url('assets/fonts/share-tech-v23-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('../assets/fonts/share-tech-v23-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
