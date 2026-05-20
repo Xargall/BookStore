@@ -31,7 +31,6 @@
   width: 100%;
   height: 100px;
   overflow: hidden;
-  
 }
 
 .head img {
@@ -39,7 +38,6 @@
   height: 250px;
   transform: translateY(-55px);
 }
-
 
 .foot {
   background-image: url(./assets/icons/Subtract.png);
@@ -157,10 +155,9 @@ input {
   color: var(--hover-color);
   height: 24px;
   align-self: center;
-  
 }
 
-input::placeholder{
+input::placeholder {
   font-family: "Share Tech";
   font-size: 14px;
 }
@@ -168,7 +165,6 @@ input::placeholder{
 .comments h4 {
   color: white;
   font-family: "Share Tech";
-  
 }
 
 .comments table {
@@ -177,24 +173,29 @@ input::placeholder{
 }
 
 .table-data {
-    padding: 8px 4px;
-    text-align: start;
-    vertical-align:top;
-  }
+  padding: 8px 4px;
+  text-align: start;
+  vertical-align: top;
+ 
+}
+
+.comment-table {
+  width: 100%;
+}
 
 .comments {
-    display: flex;
+  display: flex;
   flex-direction: column;
   overflow: auto;
   gap: 12px;
-  padding: 12px ;
-  --sb-track-color: #232E33;
+  padding: 12px;
+  --sb-track-color: #232e33;
   --sb-thumb-color: #6bc1e1;
   --sb-size: 6px;
 }
 
 .comments::-webkit-scrollbar {
-  width: var(--sb-size)
+  width: var(--sb-size);
 }
 
 .comments::-webkit-scrollbar-track {
@@ -205,13 +206,11 @@ input::placeholder{
 .comments::-webkit-scrollbar-thumb {
   background: var(--sb-thumb-color);
   border-radius: 3px;
-  
 }
 
 @supports not selector(::-webkit-scrollbar) {
   .comments {
-    scrollbar-color: var(--sb-thumb-color)
-                     var(--sb-track-color);
+    scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
   }
 }
 
@@ -220,8 +219,7 @@ input::placeholder{
   height: 250px;
 }
 
-@media screen and (max-width:420px) {
-
+@media screen and (max-width: 420px) {
   .pricing > p {
     font-size: 1.25rem;
   }
@@ -229,7 +227,7 @@ input::placeholder{
   .likes p {
     font-size: 0.9rem;
   }
-  
+
   .book-info table {
     font-size: 9px;
   }
@@ -251,16 +249,15 @@ input::placeholder{
     padding: 12px 0;
   }
 
- .table-data {
+  .table-data {
     padding: 8px 2px;
     text-align: start;
-    vertical-align:top;
+    vertical-align: top;
   }
 }
 
-@media screen and (min-width:1440px) {
+@media screen and (min-width: 1440px) {
   .room {
-    padding:25px max(130px, calc(50% - 720px));
+    padding: 25px max(130px, calc(50% - 720px));
   }
-  
 }

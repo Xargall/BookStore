@@ -4,7 +4,7 @@ function init() {
 }
 
 function renderBooks() {
-  let showRoom = document.getElementById("content");
+  const showRoom = document.getElementById("content");
 
   for (let i = 0; i < books.length; i++) {
     showRoom.innerHTML += getBookTemplate(i);
@@ -16,15 +16,15 @@ function renderBooks() {
 }
 
 function formatPrice(i) {
-  let priceRef = document.getElementById(`formatted-price${i}`);
-  let price = books[i].price;
-  let formattedPrice = price.toLocaleString("de-DE", {style:"currency", currency:"EUR"})
+  const priceRef = document.getElementById(`formatted-price${i}`);
+  const price = books[i].price;
+  const formattedPrice = price.toLocaleString("de-DE", {style:"currency", currency:"EUR"})
 
   priceRef.innerHTML = formattedPrice;
 }
 
 function publishedComments(i) {
-  let commentRef = document.getElementById(`comment${i}`);
+  const commentRef = document.getElementById(`comment${i}`);
   commentRef.innerHTML = "";
   for (
     let commentIndex = books[i].comments.length - 1;
@@ -36,7 +36,7 @@ function publishedComments(i) {
 }
 
 function isLiked(i) {
-  let image = (document.getElementById(`img${i}`).src =
+  const image = (document.getElementById(`img${i}`).src =
     "./assets/icons/unliked.png");
   if (books[i].liked == true) {
     document.getElementById(`img${i}`).src = "./assets/icons/liked.png";
@@ -65,10 +65,10 @@ function changeLike(i) {
 }
 
 function sendComment(i) {
-  let commentRef = document.getElementById(`input-comment${i}`);
-  let inputComment = commentRef.value;
-  let inputName = "Mathias";
-  let commentIndex = books[i].comments.length;
+  const commentRef = document.getElementById(`input-comment${i}`);
+  const inputComment = commentRef.value;
+  const inputName = "Mathias";
+  const commentIndex = books[i].comments.length;
 
   books[i].comments[commentIndex] = { name: inputName, comment: inputComment };
 

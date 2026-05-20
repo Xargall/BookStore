@@ -1,4 +1,4 @@
-let books = [
+const books = [
   {
     "name": "Die Geheimnisse des Ozeans",
     "author": "Clara Meer",
