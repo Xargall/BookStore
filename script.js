@@ -18,7 +18,10 @@ function renderBooks() {
 function formatPrice(i) {
   const priceRef = document.getElementById(`formatted-price${i}`);
   const price = books[i].price;
-  const formattedPrice = price.toLocaleString("de-DE", {style:"currency", currency:"EUR"})
+  const formattedPrice = price.toLocaleString("de-DE", {
+    style: "currency",
+    currency: "EUR",
+  });
 
   priceRef.innerHTML = formattedPrice;
 }
@@ -98,4 +101,30 @@ function getFromLocalStorage() {
       publishedComments(i);
     }
   }
+}
+
+function showFavDialog() {
+  const dialRef = document.getElementById("fav-dialog");
+  const dialSectRef = document.getElementById("section");
+  dialSectRef.innerHTML = ""
+  dialRef.showModal();
+  dialRef.classList.add("opened");
+
+  for (let i = 0; i < books.length; i++) {
+    let favLiked = books[i].liked;
+    if (favLiked == true) {
+      dialSectRef.innerHTML += getFavDialogTemplate(i);
+      console.log(favLiked);
+    }
+  }
+}
+
+function closeDialog() {
+  const dialRef = document.getElementById("fav-dialog");
+  dialRef.close();
+  dialRef.classList.remove("opened");
+}
+
+function bubbleProtection(event) {
+  event.stopPropagation();
 }

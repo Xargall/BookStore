@@ -47,4 +47,27 @@ function renderComments(commentIndex, i) {
    `;
 }
 
-
+function getFavDialogTemplate(i) {
+  return /*html*/ `
+  <section class="favor-section"  >
+    <div class="author-card">
+      <h5 class="card-title">${books[i].name}</h5>
+      <img src="../assets/img/books.png" alt="" srcset="">
+      <table >
+        <tr>
+          <td>Author</td>
+          <td>: ${books[i].author}</td>
+        </tr>
+        <tr>
+          <td>Erscheinungsjahr</td>
+          <td style="width: 55%">: ${books[i].publishedYear}</td>
+        </tr>
+        <tr>
+          <td>Genre</td>
+          <td>: ${books[i].genre}</td>
+        </tr>
+      </table>
+    </div> 
+  </section>      
+  `;
+}

@@ -22,7 +22,7 @@
 .head {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   background-image: url(./assets/icons/Subtract.png);
   background-position: center;
   background-size: cover;
@@ -36,7 +36,7 @@
 .head img {
   width: 350px;
   height: 250px;
-  transform: translateY(-55px);
+  transform: translateY(10px);
 }
 
 .foot {
@@ -118,7 +118,6 @@ p {
 
 .author-comment {
   font-family: "Share Tech";
-  font-size: 0.8rem;
   color: white;
 }
 
@@ -176,7 +175,6 @@ input::placeholder {
   padding: 8px 4px;
   text-align: start;
   vertical-align: top;
- 
 }
 
 .comment-table {
@@ -217,6 +215,201 @@ input::placeholder {
 .card-img-top {
   width: 330px;
   height: 250px;
+}
+
+/* From Uiverse.io by cssbuttons-io */
+.fav-btn {
+  align-items: center;
+  background-image: linear-gradient(144deg, #af40ff, #5b42f3 50%, #00ddeb);
+  border: 0;
+  border-radius: 8px;
+  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  box-sizing: border-box;
+  color: #ffffff;
+  display: flex;
+  font-size: 18px;
+  justify-content: center;
+  line-height: 1em;
+  max-width: 100%;
+  min-width: 140px;
+  padding: 3px;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.fav-btn:active,
+.fav-btn:hover {
+  outline: 0;
+}
+
+.fav-btn span {
+  background-color: rgb(5, 6, 45);
+  padding: 16px 24px;
+  border-radius: 6px;
+  width: 100%;
+  height: 100%;
+  transition: 300ms;
+}
+
+.fav-btn:hover span {
+  background: none;
+}
+
+.fav-btn:active {
+  transform: scale(0.9);
+}
+
+dialog {
+  flex-wrap: wrap;
+  justify-content: center;
+  border: none;
+  background-color: var(--primary-color);
+  width: 690px;
+  height: 675px;
+  border-radius: 40px;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  position: absolute;
+}
+
+dialog.opened {
+  border: none;
+  transition: all 2s ease-in;
+  width: 690px;
+  height: 675px;
+  border-radius: 40px;
+  overflow: hidden;
+}
+
+dialog::backdrop {
+  opacity: 0;
+  background-color: black;
+  transition: all 250ms ease-in;
+}
+
+dialog.opened::backdrop {
+  opacity: 0.5;
+  background-color: black;
+  transition: all 250ms ease-in;
+}
+
+.favor-section {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 12px;
+  width: 290px;
+  color: white;
+  font-family: "ADLaM Display";
+  border: 2px solid var(--hover-color);
+  border-radius: 25%;
+  box-shadow: 1px 3px 10px 3px #6bc1e1;
+}
+
+.fav-section {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px 20px 60px;
+  height: 100%;
+  overflow: scroll;
+  --sb-track-color: #232e33;
+  --sb-thumb-color: #6bc1e1;
+  --sb-size: 6px;
+}
+
+.fav-section::-webkit-scrollbar {
+  width: var(--sb-size);
+}
+
+.fav-section::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  border-radius: 3px;
+}
+
+.fav-section::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 3px;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  .fav-section {
+    scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+  }
+}
+
+.fav-headline {
+  text-align: center;
+  font-family: "ADLaM Display";
+  font-size: 2.5rem;
+  color: white;
+  animation: myAnim 2s ease 0s 1 normal forwards;
+}
+
+@keyframes myAnim {
+  0% {
+    animation-timing-function: ease-in;
+    opacity: 0;
+    transform: translateY(-250px);
+  }
+
+  38% {
+    animation-timing-function: ease-out;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  55% {
+    animation-timing-function: ease-in;
+    transform: translateY(-65px);
+  }
+
+  72% {
+    animation-timing-function: ease-out;
+    transform: translateY(0);
+  }
+
+  81% {
+    animation-timing-function: ease-in;
+    transform: translateY(-28px);
+  }
+
+  90% {
+    animation-timing-function: ease-out;
+    transform: translateY(0);
+  }
+
+  95% {
+    animation-timing-function: ease-in;
+    transform: translateY(-8px);
+  }
+
+  100% {
+    animation-timing-function: ease-out;
+    transform: translateY(0);
+  }
+}
+
+.author-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+}
+
+.author-card img {
+  width: 150px;
 }
 
 @media screen and (max-width: 420px) {
