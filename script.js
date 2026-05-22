@@ -28,13 +28,19 @@ function formatPrice(i) {
 
 function publishedComments(i) {
   const commentRef = document.getElementById(`comment${i}`);
+  const commentErrorRef = document.getElementById(`error${i}`);
+  commentErrorRef.innerHTML = "";
   commentRef.innerHTML = "";
-  for (
-    let commentIndex = books[i].comments.length - 1;
-    commentIndex >= 0;
-    commentIndex--
-  ) {
-    commentRef.innerHTML += renderComments(commentIndex, i);
+  if (books[i].comments.length === 0) {
+    commentErrorRef.innerHTML = `<p class="err-msg">Es war noch niemand hier!<br>Sei der Erste!</p>`;
+  } else {
+    for (
+      let commentIndex = books[i].comments.length - 1;
+      commentIndex >= 0;
+      commentIndex--
+    ) {
+      commentRef.innerHTML += renderComments(commentIndex, i);
+    }
   }
 }
 
@@ -73,7 +79,7 @@ function sendComment(i) {
   const inputName = "Mathias";
   const commentIndex = books[i].comments.length;
 
-  books[i].comments[commentIndex] = { name: inputName, comment: inputComment };
+  books[i].comments.push({ "name": inputName, "comment": inputComment });
 
   publishedComments(i);
   saveToLocalStorage(i);
@@ -84,6 +90,7 @@ function saveToLocalStorage(i) {
   localStorage.setItem(`likes${i}`, JSON.stringify(books[i].likes));
   localStorage.setItem(`liked${i}`, JSON.stringify(books[i].liked));
   localStorage.setItem(`comments${i}`, JSON.stringify(books[i].comments));
+  localStorage.setItem('cart', JSON.stringify(cart));
 }
 
 function getFromLocalStorage() {
@@ -106,7 +113,7 @@ function getFromLocalStorage() {
 function showFavDialog() {
   const dialRef = document.getElementById("fav-dialog");
   const dialSectRef = document.getElementById("section");
-  dialSectRef.innerHTML = ""
+  dialSectRef.innerHTML = "";
   dialRef.showModal();
   dialRef.classList.add("opened");
 
@@ -125,6 +132,46 @@ function closeDialog() {
   dialRef.classList.remove("opened");
 }
 
+function closeCartDialog() {
+  const dialRef = document.getElementById("cart");
+  dialRef.close();
+  dialRef.classList.remove("opened");
+}
+
 function bubbleProtection(event) {
   event.stopPropagation();
+}
+
+function showCart() {
+  const cartRef = document.getElementById("cart");
+  const cartSectRef = document.getElementById("shopping-cart");
+  cartSectRef.innerHTML = "";
+  cartRef.showModal();
+  cartRef.classList.add("opened");
+  updateCartDisplay();
+}
+
+function addToCart(i) {
+  let productName = books[i].name;
+  let productPrice = books[i].price;
+  if (cart[productName]) {
+    cart[productName].quantity += 1;
+    cart[productName].totalPrice += productPrice;
+  } else {
+    cart[productName] = {
+      quantity: 1,
+      totalPrice: productPrice,
+    };
+  }
+}
+
+function updateCartDisplay() {
+  const cartList = document.getElementById("shopping-cart");
+  cartList.innerHTML = "";
+  for (let product in cart) {
+    const listItem = document.createElement("li");
+    listItem.innerText = `${product} - Quantity: ${cart[product].quantity} - Price: ${cart[product].totalPrice.toFixed(2)}€`;
+    listItem.classList.add('cart-line')
+    cartList.appendChild(listItem);
+  }
 }

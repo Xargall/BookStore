@@ -5,11 +5,18 @@
   padding: 20px;
 }
 
+.nav {
+  display: flex;
+  justify-content: center;
+  padding: 16px;
+  gap: 61px;
+}
+
 .card {
   margin: 20px;
   border-radius: 16px !important;
   width: 350px !important;
-  height: 700px !important;
+  height: 720px !important;
   background-color: var(--header-color) !important;
   /* https://smoothshadows.com/#djEsMSw0LDAuMTQsMTMsMCwwLCMxMjQ3NTgsI2YzZjRmNiwjZmZmZmZmLDE%3D */
   box-shadow:
@@ -410,6 +417,63 @@ dialog.opened::backdrop {
 
 .author-card img {
   width: 150px;
+}
+
+.author-table {
+  border-top: 2px solid var(--hover-color);
+  padding: 8px;
+}
+
+.cart-btn {
+  font-size: 1.4em;
+  padding: 0.6em 0.8em;
+  border-radius: 0.5em;
+  border: none;
+  background-color: #000;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 2px 2px 3px #000000b4;
+}
+
+.cart-container {
+  position: relative;
+  padding: 3px;
+  background: linear-gradient(90deg, #03a9f4, #f441a5);
+  border-radius: 0.9em;
+  transition: all 0.4s ease;
+}
+
+.cart-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  border-radius: 0.9em;
+  z-index: -10;
+  filter: blur(0);
+  transition: filter 0.4s ease;
+}
+
+.cart-container:hover::before {
+  background: linear-gradient(90deg, #03a9f4, #f441a5);
+  filter: blur(1.2em);
+}
+.cart-container:active::before {
+  filter: blur(0.2em);
+}
+
+.err-msg {
+  color: white;
+  font-family: "Share Tech";
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.cart-line {
+  color: white;
+  padding: 16px 30px;
+  font-size: 1.2rem;
+  font-family: "Share Tech";
 }
 
 @media screen and (max-width: 420px) {

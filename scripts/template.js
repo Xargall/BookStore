@@ -8,6 +8,7 @@ function getBookTemplate(i) {
     <div class="card-body">
       <div class="pricing";>
           <p id="formatted-price${i}"></p>
+          <button onclick="addToCart(${i})"></button>
           <div id="like${i}" class="likes">
             <p id="like-count${i}">${books[i].likes}</p>            
             <button onclick="changeLike(${i})" class="like-button" aria-label="Favourite Button"><img src="/assets/icons/unliked.png" alt="" class="fav" id="img${i}" ></button>
@@ -31,6 +32,7 @@ function getBookTemplate(i) {
       </div>       
       <div class="comments" >
         <h4>Kommentare</h4>
+        <div id="error${i}"></div>
         <table id="comment${i}" class="comment-table" ></table>      
       </div>
       <span class="comment-input"><input class="input-field" type="text" id="input-comment${i}" placeholder="Schreibe deinen Kommentar..."><button onclick="sendComment(${i})" class="send-button" aria-label="Send Comment Button"><img src="./assets/icons/sendcomment.png" alt=""></button></span>
@@ -53,7 +55,7 @@ function getFavDialogTemplate(i) {
     <div class="author-card">
       <h5 class="card-title">${books[i].name}</h5>
       <img src="../assets/img/books.png" alt="" srcset="">
-      <table >
+      <table class="author-table">
         <tr>
           <td>Author</td>
           <td>: ${books[i].author}</td>
@@ -71,3 +73,5 @@ function getFavDialogTemplate(i) {
   </section>      
   `;
 }
+
+

@@ -192,3 +192,5 @@ const books = [
     ],
   },
 ];
+
+let cart = [];

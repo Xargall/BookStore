@@ -29,10 +29,15 @@
   <body onload="init()">
     <header class="head">
       <img src="./assets/img/bookstore-logo (1).png" alt="" />
+    </header>
+    <div class="nav">
       <button class="fav-btn" onclick="showFavDialog()">
         <span class="text">Favoriten</span>
       </button>
-    </header>
+      <div class="cart-container">
+        <button class="cart-btn" onclick="showCart()">Warenkorb</button>
+      </div>
+    </div>
     <section id="content" class="room"></section>
     <footer class="foot"></footer>
     <dialog id="fav-dialog" class="fav-dialog" onclick="closeDialog()">
@@ -41,6 +46,13 @@
         onclick="bubbleProtection(event)"
         class="fav-section"
         id="section"></section>
+    </dialog>
+    <dialog id="cart" class="cart-dialog" onclick="closeCartDialog()">
+      <h3 class="fav-headline">Shopping Cart</h3>
+      <section
+        onclick="bubbleProtection(event)"
+        class="cart-section"
+        id="shopping-cart"></section>
     </dialog>
   </body>
 </html>
