@@ -74,4 +74,15 @@ function getFavDialogTemplate(i) {
   `;
 }
 
+function renderCartList(index, formattedPrice) {
+  return /*html*/ `
+    <div class="list-item"><li class="cart-line">${cart[index].name} - Quantity: ${cart[index].quantity} - Price: ${formattedPrice}</li>
+    <button onclick=removeFromCart(${index}) class="send-button"><img src="/assets/icons/trash.png"  alt=""></button></div>
+  `;
+}
 
+function renderTotalPrice(formattedTotal){
+  return /*html*/`
+    <p>Total Price: ${formattedTotal}</p>
+  `
+}

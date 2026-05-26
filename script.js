@@ -123,7 +123,6 @@ function showFavDialog() {
     let favLiked = books[i].liked;
     if (favLiked == true) {
       dialSectRef.innerHTML += getFavDialogTemplate(i);
-      console.log(favLiked);
     }
   }
 }
@@ -153,7 +152,6 @@ function showCart() {
   updateCartDisplay();
 }
 
-
 function addToCart(i) {
   const item = cart.find((product) => product.name === books[i].name);
   if (item) {
@@ -167,23 +165,26 @@ function addToCart(i) {
 function updateCartDisplay() {
   const cartList = document.getElementById("shopping-cart");
   const cartListError = document.getElementById("cart-error");
-  let finalPriceRef= document.getElementById("total-price");
+  let finalPriceRef = document.getElementById("total-price");
   let total = 0;
   cartList.innerHTML = "";
   cartListError.innerHTML = "";
+  finalPriceRef.innerHTML = "";
   if (cart.length === 0) {
     cartListError.innerHTML = `<p class="err-msg">Fülle jetzt deinen Einkaufswagen mit deinen Lieblingsbüchern!</p>`;
   } else {
     for (let index = 0; index < cart.length; index++) {
       const subTotal = cart[index].price * cart[index].quantity;
-      const formattedPrice = subTotal.toLocaleString("de-DE", {style: "currency", currency: "EUR",});
-      const listItem = document.createElement("li");
-      listItem.innerText = `${cart[index].name} - Quantity: ${cart[index].quantity} - Price: ${formattedPrice}`;
-      listItem.classList.add("cart-line");
-      cartList.appendChild(listItem);
+      const formattedPrice = subTotal.toLocaleString("de-DE", {style: "currency",currency: "EUR",});
+      cartList.innerHTML += renderCartList(index, formattedPrice);
       total += cart[index].price * cart[index].quantity;
-      let formattedTotal = total.toLocaleString("de-DE", {style: "currency", currency: "EUR",});
-      finalPriceRef.innerHTML = formattedTotal;
-    } 
+      let formattedTotal = total.toLocaleString("de-DE", {style: "currency",currency: "EUR",});
+      finalPriceRef.innerHTML = renderTotalPrice(formattedTotal);
+    }
   }
+}
+
+function removeFromCart(index) {
+  cart = cart.filter((product) => product.name !== cart[index].name);
+  updateCartDisplay();
 }

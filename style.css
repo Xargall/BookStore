@@ -147,6 +147,7 @@ p {
   border-radius: 50%;
   padding: 8px;
   background-color: var(--button-pressed);
+  height: 42.5px;
 }
 
 .send-button:hover {
@@ -489,12 +490,24 @@ dialog.opened::backdrop {
 }
 
 .final-price {
-  margin-top: auto;
+  margin-top: 200px;
+  text-align: center;
   color: white;
+}
+
+.final-price p {
+font-size: 2rem;
+font-family: "Share Tech";
+
 }
 
 .error-cart {
   padding: 24px;
+}
+
+.list-item {
+  display: flex;
+  justify-content: space-between;
 }
 
 @media screen and (max-width: 420px) {
