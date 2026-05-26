@@ -493,6 +493,10 @@ dialog.opened::backdrop {
   color: white;
 }
 
+.error-cart {
+  padding: 24px;
+}
+
 @media screen and (max-width: 420px) {
   .pricing > p {
     font-size: 1.25rem;

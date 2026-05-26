@@ -153,50 +153,37 @@ function showCart() {
   updateCartDisplay();
 }
 
+
 function addToCart(i) {
-  let productName = books[i].name;
-  let productPrice = books[i].price;
-  if (cart.length > 0) {
-    let quantity = cart[i].quantity;
-    let totalPrice = cart[i].price;
-    let prices = totalPrice + productPrice;
-    cart[i] = {
-      "name": productName,
-      "quantity": (quantity += 1),
-      "price": prices,
-    };
-    saveToLocalStorage(i);
+  const item = cart.find((product) => product.name === books[i].name);
+  if (item) {
+    item.quantity++;
   } else {
-    let totalPrice = productPrice;
-    let quantity = 0;
-    cart[i] = {
-      "name": productName,
-      "quantity": (quantity += 1),
-      "price": totalPrice,
-    };
-    saveToLocalStorage(i);
+    cart.push({ "name": books[i].name, "price": books[i].price, quantity: 1 });
   }
+  saveToLocalStorage(i);
 }
 
 function updateCartDisplay() {
   const cartList = document.getElementById("shopping-cart");
   const cartListError = document.getElementById("cart-error");
+  let finalPriceRef= document.getElementById("total-price");
+  let total = 0;
   cartList.innerHTML = "";
   cartListError.innerHTML = "";
-  let i = cart.length;
   if (cart.length === 0) {
-    cartListError.innerHTML = `<p class="err-msg">Es war noch niemand hier!<br>Sei der Erste!</p>`;
+    cartListError.innerHTML = `<p class="err-msg">Fülle jetzt deinen Einkaufswagen mit deinen Lieblingsbüchern!</p>`;
   } else {
     for (let index = 0; index < cart.length; index++) {
-      let stringPrices = cart[index].price;
-      const formattedPrice = stringPrices.toLocaleString("de-DE", {
-        style: "currency",
-        currency: "EUR",
-      });
+      const subTotal = cart[index].price * cart[index].quantity;
+      const formattedPrice = subTotal.toLocaleString("de-DE", {style: "currency", currency: "EUR",});
       const listItem = document.createElement("li");
       listItem.innerText = `${cart[index].name} - Quantity: ${cart[index].quantity} - Price: ${formattedPrice}`;
       listItem.classList.add("cart-line");
       cartList.appendChild(listItem);
-    }
+      total += cart[index].price * cart[index].quantity;
+      let formattedTotal = total.toLocaleString("de-DE", {style: "currency", currency: "EUR",});
+      finalPriceRef.innerHTML = formattedTotal;
+    } 
   }
 }
