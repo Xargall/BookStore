@@ -471,9 +471,26 @@ dialog.opened::backdrop {
 
 .cart-line {
   color: white;
-  padding: 16px 30px;
+  padding: 16px;
   font-size: 1.2rem;
   font-family: "Share Tech";
+}
+
+.cart-container2 {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.cart-section {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.final-price {
+  margin-top: auto;
+  color: white;
 }
 
 @media screen and (max-width: 420px) {

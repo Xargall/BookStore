@@ -8,7 +8,7 @@ function getBookTemplate(i) {
     <div class="card-body">
       <div class="pricing";>
           <p id="formatted-price${i}"></p>
-          <button onclick="addToCart(${i})"></button>
+          <button onclick="addToCart(${i})" class="send-button"><img src="/assets/icons/add-to-cart.png" alt=""></button>
           <div id="like${i}" class="likes">
             <p id="like-count${i}">${books[i].likes}</p>            
             <button onclick="changeLike(${i})" class="like-button" aria-label="Favourite Button"><img src="/assets/icons/unliked.png" alt="" class="fav" id="img${i}" ></button>

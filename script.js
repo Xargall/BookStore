@@ -90,7 +90,7 @@ function saveToLocalStorage(i) {
   localStorage.setItem(`likes${i}`, JSON.stringify(books[i].likes));
   localStorage.setItem(`liked${i}`, JSON.stringify(books[i].liked));
   localStorage.setItem(`comments${i}`, JSON.stringify(books[i].comments));
-  localStorage.setItem('cart', JSON.stringify(cart));
+  localStorage.setItem("cart", JSON.stringify(cart));
 }
 
 function getFromLocalStorage() {
@@ -98,12 +98,14 @@ function getFromLocalStorage() {
     let newLikes = JSON.parse(localStorage.getItem(`likes${i}`));
     let newLiked = JSON.parse(localStorage.getItem(`liked${i}`));
     let newComments = JSON.parse(localStorage.getItem(`comments${i}`));
+    let newCart = JSON.parse(localStorage.getItem("cart"));
     if (newComments == null) {
       publishedComments(i);
     } else {
       books[i].likes = newLikes;
       books[i].liked = newLiked;
       books[i].comments = newComments;
+      cart = newCart;
       isLiked(i);
       publishedComments(i);
     }
@@ -154,24 +156,47 @@ function showCart() {
 function addToCart(i) {
   let productName = books[i].name;
   let productPrice = books[i].price;
-  if (cart[productName]) {
-    cart[productName].quantity += 1;
-    cart[productName].totalPrice += productPrice;
-  } else {
-    cart[productName] = {
-      quantity: 1,
-      totalPrice: productPrice,
+  if (cart.length > 0) {
+    let quantity = cart[i].quantity;
+    let totalPrice = cart[i].price;
+    let prices = totalPrice + productPrice;
+    cart[i] = {
+      "name": productName,
+      "quantity": (quantity += 1),
+      "price": prices,
     };
+    saveToLocalStorage(i);
+  } else {
+    let totalPrice = productPrice;
+    let quantity = 0;
+    cart[i] = {
+      "name": productName,
+      "quantity": (quantity += 1),
+      "price": totalPrice,
+    };
+    saveToLocalStorage(i);
   }
 }
 
 function updateCartDisplay() {
   const cartList = document.getElementById("shopping-cart");
+  const cartListError = document.getElementById("cart-error");
   cartList.innerHTML = "";
-  for (let product in cart) {
-    const listItem = document.createElement("li");
-    listItem.innerText = `${product} - Quantity: ${cart[product].quantity} - Price: ${cart[product].totalPrice.toFixed(2)}€`;
-    listItem.classList.add('cart-line')
-    cartList.appendChild(listItem);
+  cartListError.innerHTML = "";
+  let i = cart.length;
+  if (cart.length === 0) {
+    cartListError.innerHTML = `<p class="err-msg">Es war noch niemand hier!<br>Sei der Erste!</p>`;
+  } else {
+    for (let index = 0; index < cart.length; index++) {
+      let stringPrices = cart[index].price;
+      const formattedPrice = stringPrices.toLocaleString("de-DE", {
+        style: "currency",
+        currency: "EUR",
+      });
+      const listItem = document.createElement("li");
+      listItem.innerText = `${cart[index].name} - Quantity: ${cart[index].quantity} - Price: ${formattedPrice}`;
+      listItem.classList.add("cart-line");
+      cartList.appendChild(listItem);
+    }
   }
 }
